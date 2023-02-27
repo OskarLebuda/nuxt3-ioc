@@ -8,21 +8,25 @@ specifiers:
   '@nuxt/test-utils': ^3.2.2
   changelogen: ^0.4.1
   eslint: ^8.34.0
+  inversify: ^6.0.1
   nuxt: ^3.2.2
   vitest: ^0.28.5
+  vue: ^3.2.47
 
 dependencies:
   '@nuxt/kit': 3.2.2
+  inversify: 6.0.1
 
 devDependencies:
   '@nuxt/eslint-config': 0.1.1_eslint@8.35.0
   '@nuxt/module-builder': 0.2.1
   '@nuxt/schema': 3.2.2
-  '@nuxt/test-utils': 3.2.2
+  '@nuxt/test-utils': 3.2.2_vue@3.2.47
   changelogen: 0.4.1
   eslint: 8.35.0
   nuxt: 3.2.2_eslint@8.35.0
   vitest: 0.28.5
+  vue: 3.2.47
 
 packages:
 
@@ -999,7 +1003,7 @@ packages:
       - supports-color
     dev: true
 
-  /@nuxt/test-utils/3.2.2:
+  /@nuxt/test-utils/3.2.2_vue@3.2.47:
     resolution: {integrity: sha512-ar7WoBg+MQlOtCN8fxGtrlXNyaxZdjSf2TEVqZ5gN+Y4SrtUluD2F4SY26RRQmxihNJWpq1h8nayhEpG0i4fpg==}
     engines: {node: ^14.18.0 || ^16.10.0 || ^17.0.0 || ^18.0.0 || ^19.0.0}
     peerDependencies:
@@ -1014,6 +1018,7 @@ packages:
       jiti: 1.17.1
       ofetch: 1.0.1
       pathe: 1.1.0
+      vue: 3.2.47
     transitivePeerDependencies:
       - rollup
       - supports-color
@@ -3279,6 +3284,10 @@ packages:
       through: 2.3.8
       wrap-ansi: 8.1.0
     dev: true
+
+  /inversify/6.0.1:
+    resolution: {integrity: sha512-B3ex30927698TJENHR++8FfEaJGqoWOgI6ZY5Ht/nLUsFCwHn6akbwtnUAPCgUepAnTpe2qHxhDNjoKLyz6rgQ==}
+    dev: false
 
   /ioredis/5.3.1:
     resolution: {integrity: sha512-C+IBcMysM6v52pTLItYMeV4Hz7uriGtoJdz7SSBDX6u+zwSYGirLdQh3L7t/OItWITcw3gTFMjJReYUwS4zihg==}
