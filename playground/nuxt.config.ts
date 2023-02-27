@@ -1,4 +1,10 @@
+import iocModule from '../src/module';
+
 export default defineNuxtConfig({
-  modules: ['../src/module'],
-  myModule: {}
+  modules: [
+    iocModule,
+  ],
+  ioc: {
+    
+  }
 })

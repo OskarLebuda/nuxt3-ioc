@@ -4,5 +4,8 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
+  const nuxtApp = useNuxtApp();
+
+  console.log(useIOC);
 </script>

@@ -1,5 +1,5 @@
 {
-  "name": "my-module",
+  "name": "nuxt-ioc",
   "version": "1.0.0",
   "description": "My new Nuxt module",
   "license": "MIT",
@@ -28,7 +28,8 @@
   },
   "dependencies": {
     "@nuxt/kit": "^3.2.2",
-    "inversify": "^6.0.1"
+    "inversify": "^6.0.1",
+    "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {
     "@nuxt/eslint-config": "^0.1.1",
