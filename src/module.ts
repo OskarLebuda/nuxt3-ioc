@@ -2,7 +2,8 @@ import { defineNuxtModule, addPlugin, createResolver, addImports, isNuxt2 } from
 import { name, version } from '../package.json';
 
 // Module options TypeScript inteface definition
-export interface ModuleOptions {};
+export interface ModuleOptions {
+};
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
@@ -14,7 +15,8 @@ export default defineNuxtModule<ModuleOptions>({
       bridge: false,
     }
   },
-  defaults: {},
+  defaults: {
+  },
   setup (options, nuxt) {
 
     if (isNuxt2()) {

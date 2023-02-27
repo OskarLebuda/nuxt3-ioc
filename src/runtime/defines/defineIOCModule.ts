@@ -4,7 +4,7 @@ import { Container } from '../ioc/Container';
 
 export const defineIOCModule = (expandProvider?: IOC.ProviderFunc): Container => {
   const nuxt = useNuxtApp();
-  const container = nuxt.$__container;
+  const container = nuxt.$iocContainer;
 
   if (expandProvider && typeof expandProvider === 'function') {
     container.expand(expandProvider);

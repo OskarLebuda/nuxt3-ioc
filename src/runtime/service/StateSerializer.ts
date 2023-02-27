@@ -3,7 +3,7 @@ import { useNuxtApp } from '#app';
 import { Container } from '../ioc/Container';
 import { Injectable } from '../ioc/Injectable';
 import { IObservedClass } from '../utils/StateUtils';
-import Identity from '../ioc/Identyfy';
+import Identity from '../ioc/Identity';
  
 export const $StateSerializer = Identity('IOC:StateSerializer');
 
@@ -79,6 +79,7 @@ export class StateSerializer {
    */
   public unserialize(container: Container, state: ISerializedState): void {
     // iterate over all services and unserialize them
+    console.log(container.getAllServices());
     container.getAllServices().forEach((service: ISerializableObject) => {
       this.unserializeService(service, state);
     });
@@ -125,6 +126,8 @@ export class StateSerializer {
     if (!service.__observables) {
       return;
     }
+
+    console.log(service.__observables);
 
     // iterate over all observable entries
     service.__observables.forEach(({ serviceKey, propertyName }) => {

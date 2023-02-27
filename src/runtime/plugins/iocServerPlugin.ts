@@ -12,23 +12,28 @@ declare module '#app' {
 
 export default defineNuxtPlugin((nuxtApp) => {
 
-	const container = defineIOCContainer();
-	nuxtApp.provide('iocContainer', container);
+  let container: Container;
 
-	if (nuxtApp.payload) {
-    const stateSerializer = container.get<StateSerializer>($StateSerializer);
-    const initialState = stateSerializer.serialize(container);
-    nuxtApp.payload.__IOC_STATE__ = initialState;
-  }
+  // on start create new container and provide it
+  nuxtApp.hook('app:created', () => {
+    container = defineIOCContainer();
+    nuxtApp.provide('iocContainer', container);
 
-  initializeContainer(container);
+    initializeContainer(container);
+  })
 
-	// on finish or error - destroy container
-	nuxtApp.hook('app:rendered', async () => {
-		destroyContainer(container);
-	});
+  // on finish or error - destroy container
+  nuxtApp.hook('app:rendered', async () => {
+    if (nuxtApp.payload) {
+      const stateSerializer = container.get<StateSerializer>($StateSerializer);
+      const initialState = stateSerializer.serialize(container);
+      nuxtApp.payload.__IOC_STATE__ = initialState;
+    }
 
-	nuxtApp.hook('app:error', async () => {
-		destroyContainer(container);
-	});
+    destroyContainer(container);
+  });
+
+  nuxtApp.hook('app:error', async () => {
+    destroyContainer(container);
+  });
 });

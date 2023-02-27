@@ -2,5 +2,10 @@
   "extends": "./playground/.nuxt/tsconfig.json",
   "compilerOptions": {
     "experimentalDecorators": true
+  },
+  "paths": {
+    "#app": [
+      "./node_modules/nuxt/dist/app/index"
+    ]
   }
 }

@@ -1,11 +1,28 @@
 <template>
   <div>
-    Nuxt module playground!
+
+    items: <br>
+    {{ items }}
+
+    <button @click="handleClick">Load data</button>
   </div>
 </template>
 
-<script lang="ts" setup>
-  const nuxtApp = useNuxtApp();
+<script setup>
+  import { defineIOCModule } from '../src/runtime/defines/defineIOCModule';
+  import iocProvider from './ioc/global.ioc';
+  import TestService from './service/TestService';
 
-  console.log(useIOC);
+  const items = ref([]);
+
+  defineIOCModule(iocProvider);
+
+  const gTestService = useIOC(TestService);
+
+  const handleClick = async () => {
+    await gTestService.loadData();
+
+    items.value.push(...gTestService.state.items);
+  }
+
 </script>
